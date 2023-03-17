@@ -1,0 +1,27 @@
+.options-box {
+  cursor: pointer;
+  color: #3282ad;
+  border: #1c1c1c solid 1px;
+}
+.options-box:hover {
+  background-color: #3282ad;
+  color: white;
+}
+.discover-btn:hover {
+  background-color: #3282ad;
+}
+.discover-btn {
+  border: #3282ad solid 1px;
+}
+.btn-text:hover {
+  color: white;
+}
+.btn-text {
+  color: #3282ad;
+}
+
+@media (min-width: 991px){
+    .box-div{
+        width: 80%;
+    }
+}
