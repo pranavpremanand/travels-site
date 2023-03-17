@@ -1,5 +1,5 @@
-import React from "react";
-import Banner from "../../assets/banner.jpg";
+import React, { useContext, useEffect, useState } from "react";
+import NotFoundImg from "../../assets/notfoundImage.png";
 import Img1 from "../../assets/kayakingimage1.png";
 import Img2 from "../../assets/boatimg.png";
 import Img3 from "../../assets/Shipimg.png";
@@ -12,14 +12,31 @@ import Img9 from "../../assets/kavarathi6.png";
 import Map from "../../assets/map.png";
 import "./Contents.css";
 import Footer from "../Footer/Footer";
+import { BannerContext } from "../Context/BannerContext";
+import { BaseUrl } from "../../API/BaseUrl";
 
 const Contents = () => {
+  const {banner,setBanner} = useContext(BannerContext)
+
+  //Get banner
+  useEffect(()=>{
+    getBanner()
+  },[])
+
+  const getBanner = async()=>{
+    try{
+        const {data} = await BaseUrl.get('/')
+        setBanner(data.url)
+    }catch(err){
+        // handle err
+    }
+}
   return (
     <>
       <div className="flex flex-col">
         <div
           className="bg-cover h-96 md:h-screen flex items-center"
-          style={{ backgroundImage: `url(${Banner})` }}
+          style={{ backgroundImage: `url(${banner?banner:NotFoundImg})` }}
         >
           <div className="flex flex-col gap-3 ml-12 md:ml-20">
             <div>
@@ -75,7 +92,7 @@ const Contents = () => {
                 From - To
               </p>
               <input
-                value="Lahore - Karachi"
+                defaultValue="Lahore - Karachi"
                 className="border w-full placeholder-gray-400 focus:outline-none
                   focus:border-black p-3 mt-1 mr-0 mb-0 ml-0 text-base block bg-white
                   border-gray-300 rounded-md"
@@ -86,7 +103,7 @@ const Contents = () => {
                 Trip
               </p>
               <input
-                value="Return"
+                defaultValue="Return"
                 className="border w-full placeholder-gray-400 focus:outline-none
                   focus:border-black p-3 mt-1 mr-0 mb-0 ml-0 text-base block bg-white
                   border-gray-300 rounded-md"
@@ -97,7 +114,7 @@ const Contents = () => {
                 Depart - Return
               </p>
               <input
-                value="07 Nov 22 - 13 Nov 22"
+                defaultValue="07 Nov 22 - 13 Nov 22"
                 className="border w-full placeholder-gray-400 focus:outline-none
                   focus:border-black p-3 mt-1 mr-0 mb-0 ml-0 text-base block bg-white
                   border-gray-300 rounded-md"
@@ -108,7 +125,7 @@ const Contents = () => {
                 Passenger - Class
               </p>
               <input
-                value="1 Passenger, Economy"
+                defaultValue="1 Passenger, Economy"
                 className="border w-full placeholder-gray-400 focus:outline-none
                   focus:border-black p-3 mt-1 mr-0 mb-0 ml-0 text-base block bg-white
                   border-gray-300 rounded-md"
@@ -117,8 +134,8 @@ const Contents = () => {
           </div>
           <div className="flex justify-center sm:justify-end mr-10">
             <div className="flex items-center gap-3 my-2 sm:flex-row flex-col ">
-              <h6 className="cursor-pointer flex justify-center text-sm gap-2 items-center">
-                <i class="fa-solid fa-plus"></i> Add Promo Code
+              <h6 className="mb-4 cursor-pointer flex justify-center text-sm gap-2 items-center">
+                <i className="fa-solid fa-plus"></i> Add Promo Code
               </h6>
               <button
                 style={{ background: "#3282AD" }}
@@ -586,7 +603,7 @@ const Contents = () => {
             <div className="flex flex-col gap-5 justify-center bg-white shadow-lg rounded-lg p-4">
               <div className="flex flex-col gap-2 justify-center">
                 <img
-                  class="inline-block self-center h-20 w-20 rounded-full ring-2 ring-white"
+                  className="inline-block self-center h-20 w-20 rounded-full ring-2 ring-white"
                   src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
                   alt=""
                 />
@@ -649,7 +666,6 @@ const Contents = () => {
             ></div>
           </div>
         </div>
-
         <div><Footer/></div>
       </div>
     </>
