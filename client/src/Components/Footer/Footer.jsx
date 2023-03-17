@@ -1,13 +1,16 @@
 import React from "react";
 import Phone from "../../assets/iphonepng.png";
+import WhiteLogo from "../../assets/gol-logo-white.png";
 
 const Footer = () => {
   return (
-    <div className="relative mt-28" style={{background:'#55b0c9'}}>
+    <div className="relative mt-28" style={{ background: "#55b0c9" }}>
       <div className="h-80 flex justify-center">
         <div className="relative -mt-14 bg-black md:h-72 h-72 w-11/12 rounded-xl">
-          <div className="flex gap-4 flex-col p-12">
-            <h1 className="text-white text-4xl md:text-5xl">Download Our App</h1>
+          <div className="flex gap-6 md:gap-4 flex-col p-12">
+            <h1 className="text-white text-4xl md:text-5xl">
+              Download Our App
+            </h1>
             <span className="text-white text-xl">
               The best travel in the world
             </span>
@@ -33,9 +36,51 @@ const Footer = () => {
             <img src={Phone} className="h-80 hidden lg:block" alt="" />
           </div>
         </div>
+      </div>
+      <div className="flex px-12 flex-col">
+        <div className="flex justify-center gap-6 mb-6 md:justify-between px-8">
+          <div className="md:w-2/5 lg:flex flex-col gap-6 hidden">
+            <div>
+              <img src={WhiteLogo} alt="" />
+            </div>
+            <p className="text-white w-64">
+              Lorem Ipsum is simply dummy text of the printing and type setting
+              industry.
+            </p>
+            <div className="flex gap-3">
+              <i class="text-white text-2xl fa-brands fa-facebook"></i>
+              <i class="text-white text-2xl fa-brands fa-twitter"></i>
+              <i class="text-white text-2xl fa-brands fa-linkedin"></i>
+              <i class="text-white text-2xl fa-brands fa-instagram"></i>
+            </div>
+          </div>
+          <div className="flex gap-2 flex-col justify-center md:flex-row md:justify-between md:w-full mb-3">
+            <ul>
+              <th className="text-white text-xl md:text-mdtext-center">Company</th>
+              <li className="text-white hidden md:block">Events</li>
+              <li className="text-white hidden md:block">Blogs</li>
+              <li className="text-white hidden md:block">Join US</li>
+            </ul>
+            <ul>
+              <th className="text-white text-xl md:text-mdtext-center">About</th>
+              <li className="text-white hidden md:block">Project</li>
+              <li className="text-white hidden md:block">Lorem</li>
+              <li className="text-white hidden md:block">Services</li>
+              <li className="text-white hidden md:block">Our Story</li>
+            </ul>
+            <ul>
+              <th className="text-white text-xl md:text-md text-center">Contact Us</th>
+              <li className="text-white hidden md:block">abc@lorem.com</li>
+              <li className="text-white hidden md:block">Blogs</li>
+            </ul>
+          </div>
+        </div>
         <div>
-
-</div>
+          <hr />
+          <div className=" h-20 flex items-center justify-center">
+            <span className="text-white">Copyright © 2023 GoL Travels Private Limited. All Rights Reserved.</span>
+          </div>
+        </div>
       </div>
     </div>
   );

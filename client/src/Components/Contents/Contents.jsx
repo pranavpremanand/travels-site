@@ -138,7 +138,7 @@ const Contents = () => {
 
         <div className="flex justify-center gap-4 flex-col">
           <div className="flex flex-col gap-2 justify-center">
-            <h1 className="text-3xl text-center font-semibold">
+            <h1 className="text-2xl md:text-3xl text-center font-semibold">
               Best Packages For You
             </h1>
             <p className="md:w-auto self-center w-80 text-sm text-gray-600 text-center">
@@ -147,10 +147,10 @@ const Contents = () => {
             </p>
           </div>
           <div className="flex justify-center">
-            <div className="options-box rounded-sm px-4 md:px-12 py-2 font-semibold">
+            <div className="options-box rounded-sm px-3 md:px-12 py-2 font-semibold">
               Maldives
             </div>
-            <div className="options-box rounded-sm px-4 md:px-12 py-2 font-semibold">
+            <div className="options-box rounded-sm px-3 md:px-12 py-2 font-semibold">
               Samudram
             </div>
             <div className="options-box hidden md:block rounded-sm px-12 py-2 font-semibold">
@@ -159,7 +159,7 @@ const Contents = () => {
             <div className="options-box hidden lg:block rounded-sm px-12 py-2 font-semibold">
               Agatti
             </div>
-            <div className="options-box rounded-sm px-8 md:px-12 py-2 font-semibold">
+            <div className="options-box rounded-sm px-6 md:px-12 py-2 font-semibold">
               More
             </div>
           </div>
@@ -310,7 +310,7 @@ const Contents = () => {
             </button>
           </div>
           <div className="flex flex-col gap-2 justify-center">
-            <h1 className="text-3xl text-center font-semibold">Island Stays</h1>
+            <h1 className="text-2xl md:text-3xl text-center font-semibold">Island Stays</h1>
             <p
               style={{ maxWidth: "70%" }}
               className="md:w-auto self-center w-96 text-sm text-gray-600 text-center"
@@ -553,7 +553,7 @@ const Contents = () => {
         </div>
         <div className="flex justify-center mt-8 flex-col">
           <div>
-            <h1 className="text-3xl text-center mb-5 font-semibold">
+            <h1 className="text-2xl md:text-3xl text-center mb-5 font-semibold">
               What Our Clients Says <br />
               About Us
             </h1>
