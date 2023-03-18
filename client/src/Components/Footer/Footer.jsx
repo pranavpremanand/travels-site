@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className="relative mt-28" style={{ background: "#55b0c9" }}>
       <div className="h-80 flex justify-center">
-        <div className="relative -mt-14 bg-black md:h-72 h-72 w-11/12 rounded-xl">
+        <div className="relative -mt-14 bg-black md:h-72 h-80 w-11/12 rounded-xl">
           <div className="flex gap-6 md:gap-4 flex-col p-12">
             <h1 className="text-white text-4xl md:text-5xl">
               Download Our App
