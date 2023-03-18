@@ -1,26 +1,28 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import Logo from "../../assets/gol-logo.png";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate()
   return (
     <div>
       <nav className="p-4">
         <div className="flex items-center justify-between gap-2">
           <div className=" font-bold text-xl">
-            <img src={Logo} className="md:h-14 h-10" alt="" />
+            <img onClick={()=>navigate('/')} src={Logo} className="cursor-pointer md:h-14 h-10" alt="" />
           </div>
           <div className="items-center hidden lg:flex">
             <a
               href="#"
-              className="link font-medium link-underline link-underline-black mr-4 "
+              className="cursor-pointerlink font-medium link-underline link-underline-black mr-4 "
             >
               Find Reservations
             </a>
             <a
               href="#"
-              className="flex font-medium items-center gap-1 link link-underline link-underline-black mr-4"
+              className="cursor-pointer flex font-medium items-center gap-1 link link-underline link-underline-black mr-4"
             >
               Packages
               <svg
@@ -40,7 +42,7 @@ const Navbar = () => {
             </a>
             <a
               href="#"
-              className="flex font-medium items-center gap-1 link link-underline link-underline-black mr-4"
+              className="cursor-pointer flex font-medium items-center gap-1 link link-underline link-underline-black mr-4"
             >
               About Lakshadweep
               <svg
@@ -59,20 +61,20 @@ const Navbar = () => {
               </svg>
             </a>
             <a
-              href="#"
-              className="link font-medium link-underline link-underline-black mr-4"
+              onClick={()=>navigate('/about')}
+              className="cursor-pointer link font-medium link-underline link-underline-black mr-4"
             >
               About Us
             </a>
             <a
               href="#"
-              className="link font-medium link-underline link-underline-black mr-4"
+              className="cursor-pointer link font-medium link-underline link-underline-black mr-4"
             >
               Gol
             </a>
             <a
               href="#"
-              className=" font-medium link link-underline link-underline-black mr-4"
+              className="cursor-pointer font-medium link link-underline link-underline-black mr-4"
             >
               Support
             </a>
@@ -80,13 +82,13 @@ const Navbar = () => {
           <div className="gap-1 flex items-center">
             <a
               href="/"
-              className=" font-medium hover:text-white hover:bg-blue-400 py-2 px-4 rounded-full"
+              className="cursor-pointer font-medium hover:text-white hover:bg-blue-400 py-2 px-4 rounded-full"
             >
               Login
             </a>
             <a
               href="/"
-              className=" font-medium hidden lg:block hover:text-white hover:bg-blue-400 py-2 px-4 rounded-full"
+              className="cursor-pointer font-medium hidden lg:block hover:text-white hover:bg-blue-400 py-2 px-4 rounded-full"
             >
               Sign Up
             </a>
@@ -113,37 +115,37 @@ const Navbar = () => {
         <div class="lg:hidden block">
           <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <a
-              class=" hover:bg-blue-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              class="cursor-pointer hover:bg-blue-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               href="#"
             >
               Find Reservations
             </a>
             <a
-              class=" hover:bg-blue-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              class="cursor-pointer hover:bg-blue-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               href="#"
             >
               Packages
             </a>
             <a
-              class=" hover:bg-blue-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              class="cursor-pointer hover:bg-blue-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               href="#"
             >
               About Lakshadweep
             </a>
             <a
-              class=" hover:bg-blue-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-              href="#"
+              class="cursor-pointer hover:bg-blue-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              onClick={()=>navigate('/about')}
             >
               About Us
             </a>
             <a
-              class=" hover:bg-blue-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              class="cursor-pointer hover:bg-blue-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               href="#"
             >
               Gol
             </a>
             <a
-              class=" hover:bg-blue-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              class="cursor-pointer hover:bg-blue-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               href="#"
             >
               Support
