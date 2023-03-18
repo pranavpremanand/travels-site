@@ -56,20 +56,20 @@ const Footer = () => {
           </div>
           <div className="flex gap-2 flex-col justify-center md:flex-row md:justify-between md:w-full mb-3">
             <ul>
-              <th className="text-white text-xl md:text-mdtext-center">Company</th>
+              <th className="text-white text-lg md:text-mdtext-center">Company</th>
               <li className="text-white hidden md:block">Events</li>
               <li className="text-white hidden md:block">Blogs</li>
               <li className="text-white hidden md:block">Join US</li>
             </ul>
             <ul>
-              <th className="text-white text-xl md:text-mdtext-center">About</th>
+              <th className="text-white text-lg md:text-mdtext-center">About</th>
               <li className="text-white hidden md:block">Project</li>
               <li className="text-white hidden md:block">Lorem</li>
               <li className="text-white hidden md:block">Services</li>
               <li className="text-white hidden md:block">Our Story</li>
             </ul>
             <ul>
-              <th className="text-white text-xl md:text-md text-center">Contact Us</th>
+              <th className="text-white text-lg md:text-md text-center">Contact Us</th>
               <li className="text-white hidden md:block">abc@lorem.com</li>
               <li className="text-white hidden md:block">Blogs</li>
             </ul>

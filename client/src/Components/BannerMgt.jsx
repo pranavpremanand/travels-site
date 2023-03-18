@@ -67,7 +67,7 @@ const BannerMgt = () => {
       if (response.data) {
         img = response.data.secure_url;
       }
-      setUpdate(true)
+      setUpdate(true);
       await BaseUrl.post("/change-banner", { url: img })
         .then(() => {
           toast("Banner updated successfully", {
@@ -79,12 +79,12 @@ const BannerMgt = () => {
             },
           });
           setOpen(false);
-          setUpdate(false)
+          setUpdate(false);
           getBanner();
         })
         .catch((err) => {
           setOpen(false);
-          setUpdate(false)
+          setUpdate(false);
           toast("Something went wrong, try again", {
             icon: "❌",
             style: {
@@ -109,7 +109,7 @@ const BannerMgt = () => {
   };
   return (
     <div>
-      <div className="pl-0 md:pl-8 flex justify-center md:block">
+      <div className="pl-5 md:pl-8 flex flex-col justify-center md:justify-start">
         <img
           src={banner ? banner : NotFoundImg}
           className="w-3/4 md:w-1/2 rounded-lg"
@@ -193,7 +193,7 @@ const BannerMgt = () => {
                         Banner updating
                       </button>
                       <button
-                      disabled
+                        disabled
                         type="button"
                         className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:mt-0 sm:w-auto sm:text-sm"
                       >
