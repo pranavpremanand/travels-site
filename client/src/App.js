@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import { BannerContext } from "./Components/Context/BannerContext";
 import { useState } from "react";
 import AboutPage from "./Pages/AboutPage";
+import PackagesPage from "./Pages/PackagesPage";
 
 function App() {
   const [banner, setBanner] = useState("");
@@ -19,6 +20,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/packages" element={<PackagesPage />} />
             <Route path="/admin" element={<AdminPage />} />
           </Routes>
         </BrowserRouter>

@@ -21,7 +21,7 @@ const Navbar = () => {
               Find Reservations
             </a>
             <a
-              href="#"
+              onClick={()=>navigate('/packages')}
               className="cursor-pointer flex font-medium items-center gap-1 link link-underline link-underline-black mr-4"
             >
               Packages
@@ -122,7 +122,7 @@ const Navbar = () => {
             </a>
             <a
               class="cursor-pointer hover:bg-blue-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-              href="#"
+             onClick={()=>navigate('/packages')}
             >
               Packages
             </a>

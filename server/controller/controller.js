@@ -4,6 +4,7 @@ import { bannerModel } from "../models/bannerModel.js";
 export const getBanner = async (req, res) => {
   try {
     const bannerData = await bannerModel.findOne();
+    console.log('Banner',bannerData)
     res.status(200).json(bannerData);
   } catch (err) {
     res.status(500).json(err);
@@ -23,6 +24,7 @@ export const changeBanner = async (req, res) => {
       res.status(201).json(true);
     }
   } catch (err) {
+    console.log('Error',err)
     res.status(500).json(err);
   }
 };
