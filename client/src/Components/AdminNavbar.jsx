@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const AdminNavbar = () => {
+const AdminNavbar = ({page}) => {
   const navigate = useNavigate();
   return (
     <div className="h-24">
@@ -27,31 +27,29 @@ const AdminNavbar = () => {
           </h2>
         </div>
 
-        <a
-         
+        {page==="role-management"?<a
+         onClick={()=>navigate('/admin')}
           className="justify-self-end relative cursor-pointer inline-flex items-center justify-center p-2 px-4 py-1 overflow-hidden font-medium text-black transition duration-300 ease-out border-2 border-white-500 rounded-full shadow-md group"
         >
           <span className="absolute inset-0 flex items-center justify-center w-full h-full text-black duration-300 -translate-x-full bg-white group-hover:translate-x-0 ease">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6 text-gray-700"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
-              />
-            </svg>
+          <i class="fa-sharp fa-regular fa-id-card fa-flip fa-xl" style={{color: "#292d33"}}></i>
           </span>
           <span className="absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease">
-            Signout
+            Update Banner
           </span>
-          <span className="relative invisible">Signout</span>
-        </a>
+          <span className="relative invisible">Update Banner</span>
+        </a>:<a
+         onClick={()=>navigate('/admin/manage-roles')}
+         className="justify-self-end relative cursor-pointer inline-flex items-center justify-center p-2 px-4 py-1 overflow-hidden font-medium text-black transition duration-300 ease-out border-2 border-white-500 rounded-full shadow-md group"
+       >
+         <span className="absolute inset-0 flex items-center justify-center w-full h-full text-black duration-300 -translate-x-full bg-white group-hover:translate-x-0 ease">
+         <i class="fa-sharp fa-solid fa-image fa-flip fa-xl" style={{color: "#292d33"}}></i>
+         </span>
+         <span className="absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease">
+           Role Management
+         </span>
+         <span className="relative invisible">Role Management</span>
+       </a>}
       </div>
     </div>
   );

@@ -3,6 +3,15 @@ import "./Navbar.css";
 import Logo from "../../assets/gol-logo.png";
 import { useNavigate } from "react-router-dom";
 
+export const navbarOptions = [
+  {title:'Find Reservations',path:'/',dropdown:false},
+  {title:'Packages',path:'/packages',dropdown:true},
+  {title:'About Lakshadweep',path:'/',dropdown:true},
+  {title:'About Us',path:'/about',dropdown:false},
+  {title:'Gol',path:'/',dropdown:false},
+  {title:'Support',path:'/',dropdown:false},
+]
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate()
@@ -14,18 +23,13 @@ const Navbar = () => {
             <img onClick={()=>navigate('/')} src={Logo} className="cursor-pointer md:h-14 h-10" alt="" />
           </div>
           <div className="items-center hidden lg:flex">
-            <a
-              href="#"
-              className="cursor-pointerlink font-medium link-underline link-underline-black mr-4 "
-            >
-              Find Reservations
-            </a>
-            <a
-              onClick={()=>navigate('/packages')}
+            
+            {navbarOptions.map((value)=>{return<a
+              onClick={()=>navigate(value.path)}
               className="cursor-pointer flex font-medium items-center gap-1 link link-underline link-underline-black mr-4"
             >
-              Packages
-              <svg
+              {value.title}
+              {value.dropdown&&<svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -38,46 +42,9 @@ const Navbar = () => {
                   strokeLinejoin="round"
                   d="M19.5 8.25l-7.5 7.5-7.5-7.5"
                 />
-              </svg>
-            </a>
-            <a
-              href="#"
-              className="cursor-pointer flex font-medium items-center gap-1 link link-underline link-underline-black mr-4"
-            >
-              About Lakshadweep
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-4 h-4"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                />
-              </svg>
-            </a>
-            <a
-              onClick={()=>navigate('/about')}
-              className="cursor-pointer link font-medium link-underline link-underline-black mr-4"
-            >
-              About Us
-            </a>
-            <a
-              href="#"
-              className="cursor-pointer link font-medium link-underline link-underline-black mr-4"
-            >
-              Gol
-            </a>
-            <a
-              href="#"
-              className="cursor-pointer font-medium link link-underline link-underline-black mr-4"
-            >
-              Support
-            </a>
+              </svg>}
+            </a>})}
+            
           </div>
           <div className="gap-1 flex items-center">
             <a
@@ -114,42 +81,13 @@ const Navbar = () => {
       {open && (
         <div class="lg:hidden block">
           <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a
+            {navbarOptions.map((value)=>{return<a
               class="cursor-pointer hover:bg-blue-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-              href="#"
+              onClick={()=>navigate(value.path)}
             >
-              Find Reservations
-            </a>
-            <a
-              class="cursor-pointer hover:bg-blue-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-             onClick={()=>navigate('/packages')}
-            >
-              Packages
-            </a>
-            <a
-              class="cursor-pointer hover:bg-blue-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-              href="#"
-            >
-              About Lakshadweep
-            </a>
-            <a
-              class="cursor-pointer hover:bg-blue-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-              onClick={()=>navigate('/about')}
-            >
-              About Us
-            </a>
-            <a
-              class="cursor-pointer hover:bg-blue-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-              href="#"
-            >
-              Gol
-            </a>
-            <a
-              class="cursor-pointer hover:bg-blue-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-              href="#"
-            >
-              Support
-            </a>
+              {value.title}
+            </a>})}
+            
           </div>
         </div>
       )}

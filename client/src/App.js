@@ -7,6 +7,7 @@ import { BannerContext } from "./Components/Context/BannerContext";
 import { useState } from "react";
 import AboutPage from "./Pages/AboutPage";
 import PackagesPage from "./Pages/PackagesPage";
+import ManageRoles from "./Pages/ManageRoles";
 
 function App() {
   const [banner, setBanner] = useState("");
@@ -15,13 +16,14 @@ function App() {
       value={{ banner: banner, setBanner: (url) => setBanner(url) }}
     >
       <Toaster position="top-center" reverseOrder={true} />
-      <div className="App bg-gradient-to-b from-blue-200 to-white">
+      <div className="App bg-gradient-to-b from-blue-100 to-white">
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/packages" element={<PackagesPage />} />
             <Route path="/admin" element={<AdminPage />} />
+            <Route path="/admin/manage-roles" element={<ManageRoles />} />
           </Routes>
         </BrowserRouter>
       </div>

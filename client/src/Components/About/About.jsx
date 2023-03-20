@@ -24,7 +24,6 @@ const About = () => {
         style={{
           width: "70%",
           backgroundImage: `url(${Map})`,
-          //   backgroundSize: "90%",
           backgroundRepeat: "no-repeat",
         }}
       >

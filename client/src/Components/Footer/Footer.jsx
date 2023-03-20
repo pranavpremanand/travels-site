@@ -32,7 +32,7 @@ const Footer = () => {
               </button>
             </div>
           </div>
-          <div className="absolute -top-12 md:right-36 rotate-12">
+          <div className="absolute -top-12 md:right-36">
             <img src={Phone} className="h-80 hidden lg:block" alt="" />
           </div>
         </div>
@@ -55,30 +55,30 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex gap-2 flex-col justify-center md:flex-row md:justify-between md:w-full mb-3">
-            <ul>
-              <th className="text-white text-lg md:text-mdtext-center">Company</th>
-              <li className="text-white hidden md:block">Events</li>
-              <li className="text-white hidden md:block">Blogs</li>
-              <li className="text-white hidden md:block">Join US</li>
+            <ul className="flex flex-col items-center">
+              <th className="text-white text-md md:text-md text-center">Company</th>
+              <li className="text-white text-sm hidden md:block">Events</li>
+              <li className="text-white text-sm hidden md:block">Blogs</li>
+              <li className="text-white text-sm hidden md:block">Join US</li>
             </ul>
-            <ul>
-              <th className="text-white text-lg md:text-mdtext-center">About</th>
-              <li className="text-white hidden md:block">Project</li>
-              <li className="text-white hidden md:block">Lorem</li>
-              <li className="text-white hidden md:block">Services</li>
-              <li className="text-white hidden md:block">Our Story</li>
+            <ul className="flex flex-col items-center">
+              <th className="text-white text-md md:text-md text-center">About</th>
+              <li className="text-white text-sm hidden md:block">Project</li>
+              <li className="text-white text-sm hidden md:block">Lorem</li>
+              <li className="text-white text-sm hidden md:block">Services</li>
+              <li className="text-white text-sm hidden md:block">Our Story</li>
             </ul>
-            <ul>
-              <th className="text-white text-lg md:text-md text-center">Contact Us</th>
-              <li className="text-white hidden md:block">abc@lorem.com</li>
-              <li className="text-white hidden md:block">Blogs</li>
+            <ul className="flex flex-col items-center">
+              <th className="text-white text-md md:text-md text-center">Contact Us</th>
+              <li className="text-white text-sm hidden md:block">abc@lorem.com</li>
+              <li className="text-white text-sm hidden md:block">Blogs</li>
             </ul>
           </div>
         </div>
         <div>
           <hr />
-          <div className=" h-20 flex items-center justify-center">
-            <span className="text-white">Copyright © 2023 GoL Travels Private Limited. All Rights Reserved.</span>
+          <div className="h-20 flex items-center justify-center">
+            <span className="text-center text-xs text-white">Copyright © 2023 GoL Travels Private Limited. All Rights Reserved.</span>
           </div>
         </div>
       </div>

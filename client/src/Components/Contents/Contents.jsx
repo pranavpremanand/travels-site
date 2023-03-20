@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import NotFoundImg from "../../assets/notfoundImage.png";
 import Img1 from "../../assets/kayakingimage1.png";
 import Img2 from "../../assets/boatimg.png";
@@ -15,28 +15,45 @@ import Footer from "../Footer/Footer";
 import { BannerContext } from "../Context/BannerContext";
 import { BaseUrl } from "../../API/BaseUrl";
 
+export const packageImgs = [Img1, Img2, Img3];
+export const islandStaysImgs = [Img4, Img5, Img6, Img7, Img8, Img9];
+export const clients = [
+  {
+    name: "Alex Tom",
+    img: "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+  },
+  {
+    name: "Finn Balor",
+    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80",
+  },
+  {
+    name: "Roman Rey",
+    img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+  },
+];
+
 const Contents = () => {
-  const {banner,setBanner} = useContext(BannerContext)
+  const { banner, setBanner } = useContext(BannerContext);
 
   //Get banner
-  useEffect(()=>{
-    getBanner()
-  },[])
+  useEffect(() => {
+    getBanner();
+  }, []);
 
-  const getBanner = async()=>{
-    try{
-        const {data} = await BaseUrl.get('/')
-        setBanner(data.url)
-    }catch(err){
-        // handle err
+  const getBanner = async () => {
+    try {
+      const { data } = await BaseUrl.get("/");
+      setBanner(data.url);
+    } catch (err) {
+      // handle err
     }
-}
+  };
   return (
     <>
       <div className="flex flex-col">
         <div
           className="bg-cover h-96 md:h-screen flex items-center"
-          style={{ backgroundImage: `url(${banner?banner:NotFoundImg})` }}
+          style={{ backgroundImage: `url(${banner ? banner : NotFoundImg})` }}
         >
           <div className="flex flex-col gap-3 ml-12 md:ml-20">
             <div>
@@ -65,7 +82,7 @@ const Contents = () => {
             <div className="mt-2">
               <button
                 type="button"
-                className=" hover:text-blue-400 flex break-inside rounded-md px-4 py-3 mb-4 bg-transparent border-2 hover:border-blue-400 dark:text-white"
+                className=" hover:bg-blue-500  hover:text-blue-400 flex break-inside rounded-md md:px-4 px-2 py-2 md:py-3 mb-4 bg-transparent border-2 hover:border-blue-400 dark:text-white"
               >
                 <div className="flex items-center justify-between flex-1">
                   <span className=" text-md font-medium text-white">
@@ -182,123 +199,49 @@ const Contents = () => {
           </div>
 
           <div className="flex justify-center gap-8 flex-wrap px-3">
-            <div>
-              <div
-                style={{ backgroundImage: `url(${Img1})` }}
-                className="rounded-t-md shadow-md h-56 w-56 lg:h-64 lg:w-64 bg-cover flex justify-end p-2"
-              >
+            {packageImgs.map((url) => {
+              return (
                 <div>
-                  <span className="text-sm text-blue-500 bg-white py-1 px-3 rounded-full">
-                    ₹500
-                  </span>
-                </div>
-              </div>
-              <div className="p-2 h-40 w-56 lg:h-40 lg:w-64 bg-white gap-3 rounded-b-md mb-4">
-                <div className="flex justify-between px-2">
-                  <div className="flex items-center gap-1 text-sm">
-                    <i className="fa-solid fa-location-dot text-xs"></i>
-                    Indonesia
-                  </div>
-                  <div className="flex gap-1 items-center text-sm">
-                    <i className="fa-solid text-blue-400 fa-star text-xs"></i>
-                    4.5
-                  </div>
-                </div>
-                <span className="text-xs">
-                  Explore the Beauty of the island for 3 days and 2 nights with
-                  our travel agency...
-                </span>
-                <div className="flex justify-center m-3">
-                  <button
-                    style={{ background: "#3282AD" }}
-                    type="button"
-                    className="flex break-inside rounded-md px-5 py-1 mb-4 bg-transparent border-2 dark:text-white"
+                  <div
+                    style={{ backgroundImage: `url(${url})` }}
+                    className="rounded-t-md shadow-md h-56 w-56 lg:h-64 lg:w-64 bg-cover flex justify-end p-2"
                   >
-                    <span className=" text-sm font-light text-white">
-                      Book Now
+                    <div>
+                      <span className="text-sm text-blue-500 bg-white py-1 px-3 rounded-full">
+                        ₹500
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-2 h-40 w-56 lg:h-40 lg:w-64 bg-white gap-3 rounded-b-md mb-4">
+                    <div className="flex justify-between px-2">
+                      <div className="flex items-center gap-1 text-sm">
+                        <i className="fa-solid fa-location-dot text-xs"></i>
+                        Indonesia
+                      </div>
+                      <div className="flex gap-1 items-center text-sm">
+                        <i className="fa-solid text-blue-400 fa-star text-xs"></i>
+                        4.5
+                      </div>
+                    </div>
+                    <span className="text-xs">
+                      Explore the Beauty of the island for 3 days and 2 nights
+                      with our travel agency...
                     </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="">
-              <div
-                style={{ backgroundImage: `url(${Img2})` }}
-                className="rounded-t-md shadow-md h-56 w-56 lg:h-64 lg:w-64 bg-cover flex justify-end p-2"
-              >
-                <div>
-                  <span className="text-sm text-blue-500 bg-white py-1 px-3 rounded-full">
-                    ₹500
-                  </span>
-                </div>
-              </div>
-              <div className="p-2 h-40 w-56 lg:h-40 lg:w-64 bg-white gap-3 rounded-b-md mb-4">
-                <div className="flex justify-between px-2">
-                  <div className="flex items-center gap-1 text-sm">
-                    <i className="fa-solid fa-location-dot text-xs"></i>
-                    Indonesia
-                  </div>
-                  <div className="flex gap-1 items-center text-sm">
-                    <i className="fa-solid text-blue-400 fa-star text-xs"></i>
-                    4.5
+                    <div className="flex justify-center m-3">
+                      <button
+                        style={{ background: "#3282AD" }}
+                        type="button"
+                        className="flex break-inside rounded-md px-5 py-1 mb-4 bg-transparent border-2 dark:text-white"
+                      >
+                        <span className=" text-sm font-light text-white">
+                          Book Now
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
-                <span className="text-xs">
-                  Explore the Beauty of the island for 3 days and 2 nights with
-                  our travel agency...
-                </span>
-                <div className="flex justify-center m-3">
-                  <button
-                    style={{ background: "#3282AD" }}
-                    type="button"
-                    className="flex break-inside rounded-md px-5 py-1 mb-4 bg-transparent border-2 dark:text-white"
-                  >
-                    <span className=" text-sm font-light text-white">
-                      Book Now
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div
-                style={{ backgroundImage: `url(${Img3})` }}
-                className="rounded-t-md shadow-md h-56 w-56 lg:h-64 lg:w-64 bg-cover flex justify-end p-2"
-              >
-                <div>
-                  <span className="text-sm text-blue-500 bg-white py-1 px-3 rounded-full">
-                    ₹500
-                  </span>
-                </div>
-              </div>
-              <div className="p-2 h-40 w-56 lg:h-40 lg:w-64 bg-white gap-3 rounded-b-md mb-4">
-                <div className="flex justify-between px-2">
-                  <div className="flex items-center gap-1 text-sm">
-                    <i className="fa-solid fa-location-dot text-xs"></i>
-                    Indonesia
-                  </div>
-                  <div className="flex gap-1 items-center text-sm">
-                    <i className="fa-solid text-blue-400 fa-star text-xs"></i>
-                    4.5
-                  </div>
-                </div>
-                <span className="text-xs">
-                  Explore the Beauty of the island for 3 days and 2 nights with
-                  our travel agency...
-                </span>
-                <div className="flex justify-center m-3">
-                  <button
-                    style={{ background: "#3282AD" }}
-                    type="button"
-                    className="flex break-inside rounded-md px-5 py-1 mb-4 bg-transparent border-2 dark:text-white"
-                  >
-                    <span className=" text-sm font-light text-white">
-                      Book Now
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
           <div className="flex justify-center gap-2">
             <div
@@ -327,7 +270,9 @@ const Contents = () => {
             </button>
           </div>
           <div className="flex flex-col gap-2 justify-center">
-            <h1 className="text-2xl md:text-3xl text-center font-semibold">Island Stays</h1>
+            <h1 className="text-2xl md:text-3xl text-center font-semibold">
+              Island Stays
+            </h1>
             <p
               style={{ maxWidth: "70%" }}
               className="md:w-auto self-center w-96 text-sm text-gray-600 text-center"
@@ -340,198 +285,42 @@ const Contents = () => {
           </div>
 
           <div className="flex justify-center self-center gap-8 flex-wrap px-3 mt-6 md:w-4/6">
-            <div>
-              <div
-                style={{ backgroundImage: `url(${Img4})` }}
-                className="rounded-t-md shadow-md h-56 w-56 lg:h-64 lg:w-64 bg-cover flex justify-end p-2"
-              ></div>
-              <div className="p-2 h-40 w-56 lg:h-40 lg:w-64 bg-white gap-3 rounded-b-md mb-4">
-                <div className="flex justify-between px-2">
-                  <div className="flex items-center gap-1 text-sm">
-                    Kavaratti
-                  </div>
-                </div>
-                <span className="text-xs">
-                  Kavaratti is the capital of the Union Territory of Lakshadweep
-                  having ....
-                </span>
-                <div className="flex justify-between gap-1 items-center m-3">
-                  <div className="flex gap-1 items-center text-xs mb-3">
-                    <i className="fa-solid text-blue-400 fa-star text-xs"></i>
-                    <b>4.5</b>(1.5k Review)
-                  </div>
-                  <button
-                    style={{ background: "#3282AD" }}
-                    type="button"
-                    className="flex break-inside rounded-md px-1 py-1 mb-4 bg-transparent border-2 dark:text-white"
-                  >
-                    <span className=" text-xs font-light text-white">
-                      Explore More
+            {islandStaysImgs.map((url) => {
+              return (
+                <div>
+                  <div
+                    style={{ backgroundImage: `url(${url})` }}
+                    className="rounded-t-md shadow-md h-56 w-56 lg:h-64 lg:w-64 bg-cover flex justify-end p-2"
+                  ></div>
+                  <div className="p-2 h-40 w-56 lg:h-40 lg:w-64 bg-white gap-3 rounded-b-md mb-4">
+                    <div className="flex justify-between px-2">
+                      <div className="flex items-center gap-1 text-sm">
+                        Kavaratti
+                      </div>
+                    </div>
+                    <span className="text-xs">
+                      Kavaratti is the capital of the Union Territory of
+                      Lakshadweep having ....
                     </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div
-                style={{ backgroundImage: `url(${Img5})` }}
-                className="rounded-t-md shadow-md h-56 w-56 lg:h-64 lg:w-64 bg-cover flex justify-end p-2"
-              ></div>
-              <div className="p-2 h-40 w-56 lg:h-40 lg:w-64 bg-white gap-3 rounded-b-md mb-4">
-                <div className="flex justify-between px-2">
-                  <div className="flex items-center gap-1 text-sm">
-                    Kavaratti
+                    <div className="flex justify-between gap-1 items-center m-3">
+                      <div className="flex gap-1 items-center text-xs mb-3">
+                        <i className="fa-solid text-blue-400 fa-star text-xs"></i>
+                        <b>4.5</b>(1.5k Review)
+                      </div>
+                      <button
+                        style={{ background: "#3282AD" }}
+                        type="button"
+                        className="flex break-inside rounded-md px-1 py-1 mb-4 bg-transparent border-2 dark:text-white"
+                      >
+                        <span className=" text-xs font-light text-white">
+                          Explore More
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
-                <span className="text-xs">
-                  Kavaratti is the capital of the Union Territory of Lakshadweep
-                  having ....
-                </span>
-                <div className="flex justify-between gap-1 items-center m-3">
-                  <div className="flex gap-1 items-center text-xs mb-3">
-                    <i className="fa-solid text-blue-400 fa-star text-xs"></i>
-                    <b>4.5</b>(1.5k Review)
-                  </div>
-                  <button
-                    style={{ background: "#3282AD" }}
-                    type="button"
-                    className="flex break-inside rounded-md px-1 py-1 mb-4 bg-transparent border-2 dark:text-white"
-                  >
-                    <span className=" text-xs font-light text-white">
-                      Explore More
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div
-                style={{ backgroundImage: `url(${Img6})` }}
-                className="rounded-t-md shadow-md h-56 w-56 lg:h-64 lg:w-64 bg-cover flex justify-end p-2"
-              ></div>
-              <div className="p-2 h-40 w-56 lg:h-40 lg:w-64 bg-white gap-3 rounded-b-md mb-4">
-                <div className="flex justify-between px-2">
-                  <div className="flex items-center gap-1 text-sm">
-                    Kavaratti
-                  </div>
-                </div>
-                <span className="text-xs">
-                  Kavaratti is the capital of the Union Territory of Lakshadweep
-                  having ....
-                </span>
-                <div className="flex justify-between gap-1 items-center m-3">
-                  <div className="flex gap-1 items-center text-xs mb-3">
-                    <i className="fa-solid text-blue-400 fa-star text-xs"></i>
-                    <b>4.5</b>(1.5k Review)
-                  </div>
-                  <button
-                    style={{ background: "#3282AD" }}
-                    type="button"
-                    className="flex break-inside rounded-md px-1 py-1 mb-4 bg-transparent border-2 dark:text-white"
-                  >
-                    <span className=" text-xs font-light text-white">
-                      Explore More
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div
-                style={{ backgroundImage: `url(${Img7})` }}
-                className="rounded-t-md shadow-md h-56 w-56 lg:h-64 lg:w-64 bg-cover flex justify-end p-2"
-              ></div>
-              <div className="p-2 h-40 w-56 lg:h-40 lg:w-64 bg-white gap-3 rounded-b-md mb-4">
-                <div className="flex justify-between px-2">
-                  <div className="flex items-center gap-1 text-sm">
-                    Kavaratti
-                  </div>
-                </div>
-                <span className="text-xs">
-                  Kavaratti is the capital of the Union Territory of Lakshadweep
-                  having ....
-                </span>
-                <div className="flex justify-between gap-1 items-center m-3">
-                  <div className="flex gap-1 items-center text-xs mb-3">
-                    <i className="fa-solid text-blue-400 fa-star text-xs"></i>
-                    <b>4.5</b>(1.5k Review)
-                  </div>
-                  <button
-                    style={{ background: "#3282AD" }}
-                    type="button"
-                    className="flex break-inside rounded-md px-1 py-1 mb-4 bg-transparent border-2 dark:text-white"
-                  >
-                    <span className=" text-xs font-light text-white">
-                      Explore More
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div
-                style={{ backgroundImage: `url(${Img8})` }}
-                className="rounded-t-md shadow-md h-56 w-56 lg:h-64 lg:w-64 bg-cover flex justify-end p-2"
-              ></div>
-              <div className="p-2 h-40 w-56 lg:h-40 lg:w-64 bg-white gap-3 rounded-b-md mb-4">
-                <div className="flex justify-between px-2">
-                  <div className="flex items-center gap-1 text-sm">
-                    Kavaratti
-                  </div>
-                </div>
-                <span className="text-xs">
-                  Kavaratti is the capital of the Union Territory of Lakshadweep
-                  having ....
-                </span>
-                <div className="flex justify-between gap-1 items-center m-3">
-                  <div className="flex gap-1 items-center text-xs mb-3">
-                    <i className="fa-solid text-blue-400 fa-star text-xs"></i>
-                    <b>4.5</b>(1.5k Review)
-                  </div>
-                  <button
-                    style={{ background: "#3282AD" }}
-                    type="button"
-                    className="flex break-inside rounded-md px-1 py-1 mb-4 bg-transparent border-2 dark:text-white"
-                  >
-                    <span className=" text-xs font-light text-white">
-                      Explore More
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div
-                style={{ backgroundImage: `url(${Img9})` }}
-                className="rounded-t-md shadow-md h-56 w-56 lg:h-64 lg:w-64 bg-cover flex justify-end p-2"
-              ></div>
-              <div className="p-2 h-40 w-56 lg:h-40 lg:w-64 bg-white gap-3 rounded-b-md mb-4">
-                <div className="flex justify-between px-2">
-                  <div className="flex items-center gap-1 text-sm">
-                    Kavaratti
-                  </div>
-                </div>
-                <span className="text-xs">
-                  Kavaratti is the capital of the Union Territory of Lakshadweep
-                  having ....
-                </span>
-                <div className="flex justify-between gap-1 items-center m-3">
-                  <div className="flex gap-1 items-center text-xs mb-3">
-                    <i className="fa-solid text-blue-400 fa-star text-xs"></i>
-                    <b>4.5</b>(1.5k Review)
-                  </div>
-                  <button
-                    style={{ background: "#3282AD" }}
-                    type="button"
-                    className="flex break-inside rounded-md px-1 py-1 mb-4 bg-transparent border-2 dark:text-white"
-                  >
-                    <span className=" text-xs font-light text-white">
-                      Explore More
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
 
@@ -576,80 +365,36 @@ const Contents = () => {
             </h1>
           </div>
           <div className="flex gap-3 justify-center flex-wrap">
-            <div className="flex flex-col gap-5 justify-center bg-white shadow-lg rounded-lg p-4">
-              <div className="flex flex-col gap-2 justify-center">
-                <img
-                  className="inline-block self-center h-20 w-20 rounded-full ring-2 ring-white"
-                  src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                  alt=""
-                />
-                <h1 className="text-lg text-center font-semibold">Alex Tom</h1>
-                <span className="text-sm text-center">Toranto, Canada</span>
-              </div>
-              <div className="flex flex-col gap-3 justify-center">
-                <p className="text-sm font-light w-60 text-center">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Pellentesque efficitur ac quam in congue.{" "}
-                </p>
-                <div className="flex gap-1 justify-center">
-                  <i className="fa-solid text-blue-400 fa-star text-2xl"></i>
-                  <i className="fa-solid text-blue-400 fa-star text-2xl"></i>
-                  <i className="fa-solid text-blue-400 fa-star text-2xl"></i>
-                  <i className="fa-solid text-blue-400 fa-star text-2xl"></i>
-                  <i className="fa-solid text-blue-400 fa-star text-2xl"></i>
+            {clients.map((client) => {
+              return (
+                <div className="flex flex-col gap-5 justify-center bg-white shadow-lg rounded-lg p-4">
+                  <div className="flex flex-col gap-2 justify-center">
+                    <img
+                      className="inline-block self-center h-20 w-20 rounded-full ring-2 ring-white"
+                      src={client.img}
+                      alt=""
+                    />
+                    <h1 className="text-lg text-center font-semibold">
+                      {client.name}
+                    </h1>
+                    <span className="text-sm text-center">Toranto, Canada</span>
+                  </div>
+                  <div className="flex flex-col gap-3 justify-center">
+                    <p className="text-sm font-light w-60 text-center">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Pellentesque efficitur ac quam in congue.{" "}
+                    </p>
+                    <div className="flex gap-1 justify-center">
+                      <i className="fa-solid text-blue-400 fa-star text-2xl"></i>
+                      <i className="fa-solid text-blue-400 fa-star text-2xl"></i>
+                      <i className="fa-solid text-blue-400 fa-star text-2xl"></i>
+                      <i className="fa-solid text-blue-400 fa-star text-2xl"></i>
+                      <i className="fa-solid text-blue-400 fa-star text-2xl"></i>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="flex flex-col gap-5 justify-center bg-white shadow-lg rounded-lg p-4">
-              <div className="flex flex-col gap-2 justify-center">
-                <img
-                  className="inline-block self-center h-20 w-20 rounded-full ring-2 ring-white"
-                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
-                  alt=""
-                />
-
-                <h1 className="text-lg text-center font-semibold">Finn Balor</h1>
-                <span className="text-sm text-center">Toranto, Canada</span>
-              </div>
-              <div className="flex flex-col gap-3 justify-center">
-                <p className="text-sm font-light w-60 text-center">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Pellentesque efficitur ac quam in congue.{" "}
-                </p>
-                <div className="flex gap-1 justify-center">
-                  <i className="fa-solid text-blue-400 fa-star text-2xl"></i>
-                  <i className="fa-solid text-blue-400 fa-star text-2xl"></i>
-                  <i className="fa-solid text-blue-400 fa-star text-2xl"></i>
-                  <i className="fa-solid text-blue-400 fa-star text-2xl"></i>
-                  <i className="fa-solid text-blue-400 fa-star text-2xl"></i>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col gap-5 justify-center bg-white shadow-lg rounded-lg p-4">
-              <div className="flex flex-col gap-2 justify-center">
-                <img
-                  class="inline-block self-center h-20 w-20 rounded-full ring-2 ring-white"
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                  alt=""
-                />
-
-                <h1 className="text-lg text-center font-semibold">Roman Rey</h1>
-                <span className="text-sm text-center">Toranto, Canada</span>
-              </div>
-              <div className="flex flex-col gap-3 justify-center">
-                <p className="text-sm font-light w-60 text-center">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Pellentesque efficitur ac quam in congue.{" "}
-                </p>
-                <div className="flex gap-1 justify-center">
-                  <i className="fa-solid text-blue-400 fa-star text-2xl"></i>
-                  <i className="fa-solid text-blue-400 fa-star text-2xl"></i>
-                  <i className="fa-solid text-blue-400 fa-star text-2xl"></i>
-                  <i className="fa-solid text-blue-400 fa-star text-2xl"></i>
-                  <i className="fa-solid text-blue-400 fa-star text-2xl"></i>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
           <div className="flex justify-center gap-2 mt-6">
             <div
@@ -666,7 +411,9 @@ const Contents = () => {
             ></div>
           </div>
         </div>
-        <div><Footer/></div>
+        <div>
+          <Footer />
+        </div>
       </div>
     </>
   );
