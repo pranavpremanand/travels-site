@@ -80,6 +80,14 @@ function RoleManagement() {
         role: role,
       });
       if (data) {
+        toast("Admin role updated", {
+            icon: "✅",
+            style: {
+              borderRadius: "10px",
+              background: "#333",
+              color: "#fff",
+            },
+          });
         getData();
         setOpen(false)
       }
