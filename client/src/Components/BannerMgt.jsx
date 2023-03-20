@@ -68,7 +68,7 @@ const BannerMgt = () => {
         img = response.data.secure_url;
       }
       setUpdate(true);
-      await BaseUrl.post("/change-banner", { url: img })
+      await BaseUrl.patch("/admin/change-banner", { url: img })
         .then(() => {
           toast("Banner updated successfully", {
             icon: "✅",

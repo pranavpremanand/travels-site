@@ -29,7 +29,7 @@ const AdminNavbar = ({page}) => {
 
         {page==="role-management"?<a
          onClick={()=>navigate('/admin')}
-          className="justify-self-end relative cursor-pointer inline-flex items-center justify-center p-2 px-4 py-1 overflow-hidden font-medium text-black transition duration-300 ease-out border-2 border-white-500 rounded-full shadow-md group"
+          className="justify-self-end relative cursor-pointer inline-flex items-center justify-center p-2 px-4 py-1 overflow-hidden font-medium text-black transition duration-1000 ease-out border-2 border-white-500 rounded-full shadow-md group"
         >
           <span className="absolute inset-0 flex items-center justify-center w-full h-full text-black duration-300 -translate-x-full bg-white group-hover:translate-x-0 ease">
           <i class="fa-sharp fa-regular fa-id-card fa-flip fa-xl" style={{color: "#292d33"}}></i>
@@ -40,7 +40,7 @@ const AdminNavbar = ({page}) => {
           <span className="relative invisible">Update Banner</span>
         </a>:<a
          onClick={()=>navigate('/admin/manage-roles')}
-         className="justify-self-end relative cursor-pointer inline-flex items-center justify-center p-2 px-4 py-1 overflow-hidden font-medium text-black transition duration-300 ease-out border-2 border-white-500 rounded-full shadow-md group"
+         className="justify-self-end relative cursor-pointer inline-flex items-center justify-center p-2 px-4 py-1 overflow-hidden font-medium text-black transition duration-1000 ease-out border-2 border-white-500 rounded-full shadow-md group"
        >
          <span className="absolute inset-0 flex items-center justify-center w-full h-full text-black duration-300 -translate-x-full bg-white group-hover:translate-x-0 ease">
          <i class="fa-sharp fa-solid fa-image fa-flip fa-xl" style={{color: "#292d33"}}></i>
