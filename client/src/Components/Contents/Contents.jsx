@@ -51,7 +51,7 @@ const Contents = () => {
   };
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col pt-16 md:pt-0">
         <div
           className="bg-cover h-96 md:h-screen flex items-center"
           style={{ backgroundImage: `url(${banner ? banner : NotFoundImg})` }}

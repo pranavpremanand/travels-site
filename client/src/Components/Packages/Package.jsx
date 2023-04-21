@@ -17,7 +17,7 @@ export const dayWiseItineary = [
 ];
 const Packages = () => {
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col justify-center pt-16 md:pt-0">
       <div
         className="relative h-60 mb-12 md:mb-32 lg:mb-0 lg:h-screen bg-contain self-center flex justify-center"
         style={{

@@ -18,7 +18,7 @@ export const avatars = [Oval, Oval1, Oval2, Oval3, Oval4];
 
 const About = () => {
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col justify-center pt-16 md:pt-0">
       <div
         className="relative h-60 md:h-screen bg-contain self-center flex justify-center"
         style={{
