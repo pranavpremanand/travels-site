@@ -25,8 +25,8 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/packages" element={<PackagesPage />} />
-              <Route path="/admin" element={<AdminPage />} />
-              <Route path="/admin/manage-roles" element={<ManageRoles />} />
+              {/* <Route path="/admin" element={<AdminPage />} />
+              <Route path="/admin/manage-roles" element={<ManageRoles />} /> */}
             </Routes>
           </BrowserRouter>
         </div>

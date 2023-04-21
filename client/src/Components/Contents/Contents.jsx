@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import NotFoundImg from "../../assets/notfoundImage.png";
 import Img1 from "../../assets/kayakingimage1.png";
 import Img2 from "../../assets/boatimg.png";
@@ -33,7 +33,8 @@ export const clients = [
 ];
 
 const Contents = () => {
-  const { banner, setBanner } = useContext(BannerContext);
+  // const { banner, setBanner } = useContext(BannerContext);
+  const [banner, setBanner] = useState(process.env.REACT_APP_BANNERIMG);
 
   //Get banner
   useEffect(() => {
@@ -104,7 +105,7 @@ const Contents = () => {
             </h4>
           </div>
           <div className="px-10 py-4 flex gap-3 items-center md:items-start flex-col sm:flex-row flex-wrap justify-center md:justify-evenly">
-            <div className="md:w-72 w-52 sm:w-96 lg:w-64">
+            <div className="md:w-64 w-52 sm:w-96 lg:w-56">
               <p className="bg-white pt-0 pr-2 pb-0 pl-2 -mt-1 mr-0 mb-0 ml-2 text-sm font-medium text-gray-800 absolute">
                 From - To
               </p>
@@ -115,7 +116,7 @@ const Contents = () => {
                   border-gray-300 rounded-md"
               />
             </div>
-            <div className="md:w-72 w-52 sm:w-48 lg:w-64">
+            <div className="md:w-64 w-52 sm:w-48 lg:w-56">
               <p className="bg-white pt-0 pr-2 pb-0 pl-2 -mt-1 mr-0 mb-0 ml-2 text-sm font-medium text-gray-800 absolute">
                 Trip
               </p>
@@ -126,7 +127,7 @@ const Contents = () => {
                   border-gray-300 rounded-md"
               />
             </div>
-            <div className="md:w-72 w-52 sm:w-48 lg:w-64">
+            <div className="md:w-64 w-52 sm:w-48 lg:w-56">
               <p className="bg-white pt-0 pr-2 pb-0 pl-2 -mt-1 mr-0 mb-0 ml-2 text-sm font-medium text-gray-800 absolute">
                 Depart - Return
               </p>
@@ -137,7 +138,7 @@ const Contents = () => {
                   border-gray-300 rounded-md"
               />
             </div>
-            <div className="md:w-72 hidden lg:w-64 md:block">
+            <div className="md:w-64 hidden lg:w-56 md:block">
               <p className="bg-white pt-0 pr-2 pb-0 pl-2 -mt-1 mr-0 mb-0 ml-2 text-sm font-medium text-gray-800 absolute">
                 Passenger - Class
               </p>
@@ -170,7 +171,7 @@ const Contents = () => {
           </div>
         </div>
 
-        <div className="flex justify-center gap-4 flex-col">
+        <div className="gap-4 flex flex-col">
           <div className="flex flex-col gap-2 justify-center">
             <h1 className="text-2xl md:text-3xl text-center font-semibold">
               Best Packages For You
@@ -198,13 +199,13 @@ const Contents = () => {
             </div>
           </div>
 
-          <div className="flex justify-center gap-8 flex-wrap px-3">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 self-center px-3">
             {packageImgs.map((url) => {
               return (
                 <div>
                   <div
                     style={{ backgroundImage: `url(${url})` }}
-                    className="rounded-t-md shadow-md h-56 w-56 lg:h-64 lg:w-64 bg-cover flex justify-end p-2"
+                    className="rounded-t-md shadow-md h-56 lg:h-64 bg-cover flex justify-end p-2"
                   >
                     <div>
                       <span className="text-sm text-blue-500 bg-white py-1 px-3 rounded-full">
@@ -212,8 +213,8 @@ const Contents = () => {
                       </span>
                     </div>
                   </div>
-                  <div className="p-2 h-40 w-56 lg:h-40 lg:w-64 bg-white gap-3 rounded-b-md mb-4">
-                    <div className="flex justify-between px-2">
+                  <div className="relative w-full p-2 h-40 lg:h-40 bg-white gap-3 rounded-b-md mb-4">
+                    <div className="flex justify-between">
                       <div className="flex items-center gap-1 text-sm">
                         <i className="fa-solid fa-location-dot text-xs"></i>
                         Indonesia
@@ -227,7 +228,7 @@ const Contents = () => {
                       Explore the Beauty of the island for 3 days and 2 nights
                       with our travel agency...
                     </span>
-                    <div className="flex justify-center m-3">
+                    <div className="absolute right-0 left-0 bottom-0 flex justify-center m-3">
                       <button
                         style={{ background: "#3282AD" }}
                         type="button"
@@ -284,17 +285,17 @@ const Contents = () => {
             </p>
           </div>
 
-          <div className="flex justify-center self-center gap-8 flex-wrap px-3 mt-6 md:w-4/6">
+          <div className="gap-8 self-center grid grid-cols-1 md:grid-cols-3 px-3 mt-6">
             {islandStaysImgs.map((url) => {
               return (
                 <div>
                   <div
                     style={{ backgroundImage: `url(${url})` }}
-                    className="rounded-t-md shadow-md h-56 w-56 lg:h-64 lg:w-64 bg-cover flex justify-end p-2"
+                    className="rounded-t-md shadow-md h-56 lg:h-64 bg-cover flex justify-end p-2"
                   ></div>
-                  <div className="p-2 h-40 w-56 lg:h-40 lg:w-64 bg-white gap-3 rounded-b-md mb-4">
-                    <div className="flex justify-between px-2">
-                      <div className="flex items-center gap-1 text-sm">
+                  <div className="p-2 h-40 lg:h-40 bg-white gap-3 rounded-b-md mb-4">
+                    <div className="flex justify-between">
+                      <div className="flex items-center gap-1 font-medium text-sm">
                         Kavaratti
                       </div>
                     </div>
@@ -302,20 +303,22 @@ const Contents = () => {
                       Kavaratti is the capital of the Union Territory of
                       Lakshadweep having ....
                     </span>
-                    <div className="flex justify-between gap-1 items-center m-3">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 m-3">
                       <div className="flex gap-1 items-center text-xs mb-3">
                         <i className="fa-solid text-blue-400 fa-star text-xs"></i>
                         <b>4.5</b>(1.5k Review)
                       </div>
-                      <button
-                        style={{ background: "#3282AD" }}
-                        type="button"
-                        className="flex break-inside rounded-md px-1 py-1 mb-4 bg-transparent border-2 dark:text-white"
-                      >
-                        <span className=" text-xs font-light text-white">
-                          Explore More
-                        </span>
-                      </button>
+                      <div>
+                        <button
+                          style={{ background: "#3282AD" }}
+                          type="button"
+                          className="flex justify-center break-inside rounded-md px-1 py-1 mb-4 bg-transparent border-2 dark:text-white"
+                        >
+                          <span className=" text-xs font-light text-white">
+                            Explore More
+                          </span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -347,7 +350,7 @@ const Contents = () => {
               <div className="">
                 <button
                   type="button"
-                  className="md:right-20 md:absolute bg-white flex break-inside rounded-md text-sm md:text-md md:px-3 px-1 py-1 md:py-2 mb-4 border-2"
+                  className="md:right-20 md:absolute xl:relative bg-white flex break-inside rounded-md text-sm md:text-md md:px-3 px-1 py-1 md:py-2 mb-4 border-2"
                 >
                   <span className=" text-xs font-normal bg-white text-black">
                     Explore More
